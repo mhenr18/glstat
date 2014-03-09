@@ -1,3 +1,9 @@
+//
+// glstatPayload.c
+// Copyright (c) 2014 Matthew Henry.
+// MIT licensed - refer to LICENSE.txt for details.
+//
+
 #include <mach/mach.h>
 #include <mach/mach_time.h>
 #include <OpenGL/OpenGL.h>
