@@ -1,6 +1,7 @@
 CC = clang
+CXX = clang++ -std=c++11 --stdlib=libc++
 
-FMT_SRCS = glstatFmt.c
+FMT_SRCS = glstatFmt.cc
 PAYLOAD_SRCS = glstatPayload.c
 
 MACH_OVERRIDE_SRCS = $(shell ls mach_override/mach_override.c mach_override/libudis86/*.c)
@@ -9,7 +10,7 @@ MACH_OVERRIDE_OBJS = $(subst .c,.o,$(MACH_OVERRIDE_SRCS))
 all: glstat_fmt glstat.dylib
 
 glstat_fmt: $(FMT_SRCS)
-	$(CC) -g -framework CoreFoundation $^ -o $@
+	$(CXX) -g -framework CoreFoundation $^ -o $@
 
 glstat.dylib: $(MACH_OVERRIDE_OBJS) $(PAYLOAD_SRCS)
 	$(CC) -arch i386 -arch x86_64 -g -framework OpenGL -framework CoreServices -dynamiclib $(PAYLOAD_SRCS) $(MACH_OVERRIDE_OBJS) -o $@

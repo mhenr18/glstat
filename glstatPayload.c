@@ -24,7 +24,7 @@ double getTime(void)
 
 CGLError CGLFlushDrawableOverride(CGLContextObj ctx)
 {
-    fprintf(fout, "%p %.6f\n", (void *)ctx, getTime() - startTime);
+    fprintf(fout, "%p @ %.6f: CGLFlushDrawable\n", (void *)ctx, getTime() - startTime);
     return CGLFlushDrawableReentry(ctx);
 }
 
