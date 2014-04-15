@@ -31,7 +31,7 @@ CGLError CGLFlushDrawableOverride(CGLContextObj ctx)
     return CGLFlushDrawableReentry(ctx);
 }
 
-void payload_main(int in, int out, int err)
+void payload_entry(int in, int out, int err)
 {
     fin = fdopen(in, "r");
     fout = fdopen(out, "w");
